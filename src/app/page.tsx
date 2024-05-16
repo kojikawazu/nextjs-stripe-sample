@@ -1,5 +1,4 @@
-import { SupabaseClient, createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+import { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from '@/lib/database.types';
 import Link from "next/link";
 import {
@@ -8,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { supabaseServer } from "./utils/supabaseServer";
 
 const getAllLessons = async (
   supabase: SupabaseClient<Database>
@@ -17,7 +17,7 @@ const getAllLessons = async (
 }
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = supabaseServer();
   const lessons = await getAllLessons(supabase);
 
   return (
