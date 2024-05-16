@@ -1,8 +1,8 @@
 import React from 'react';
-import { SupabaseClient, createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from "next/headers";
+import { SupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
 import SubscriptionManagement from '@/components/checkout/SubscriptionManagement';
+import { supabaseServer } from '../utils/supabaseServer';
 
 const getProfileData = async (supabase: SupabaseClient<Database>) => {
     const { data: profile } = await supabase
@@ -13,7 +13,7 @@ const getProfileData = async (supabase: SupabaseClient<Database>) => {
 }
 
 const Dashboard = async () => {
-    const supabase = await createServerComponentClient({ cookies });
+    const supabase = supabaseServer();
     const profile = await getProfileData(supabase);
 
     return (
