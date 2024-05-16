@@ -1,4 +1,3 @@
-
 # commands
 
 ```bash
@@ -24,6 +23,16 @@ ngrok http 3000
 
 npm i @stripe/stripe-js
 ```
+
+# vercel
+
+1. GitHubへプッシュ
+2. Vercelへデプロイ
+3. SupabaseのAuthenticationのURL Configurationを修正する
+4. SupabaseのWebhookを修正する
+5. StripeのBillingのカスタマーポータルの修正→ビジネス情報を修正する
+6. Stripeの開発者のWebhookを修正する
+7. Stripeの本番環境の申請を行う
 
 # supabase
 
